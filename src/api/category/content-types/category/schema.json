@@ -4,24 +4,29 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category"
+    "displayName": "Category",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true,
-    "populateCreatorFields": true
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "title": {
       "type": "string",
-      "unique": true,
+      "unique": false,
       "required": true
     },
-    "restaurants": {
+    "cards": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::restaurant.restaurant",
-      "inversedBy": "categories"
+      "relation": "oneToMany",
+      "target": "api::card.card",
+      "mappedBy": "category"
+    },
+    "creatorInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "creator-info.creator-info"
     }
   }
 }

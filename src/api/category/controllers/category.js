@@ -14,19 +14,19 @@ module.exports = createCoreController('api::category.category', ({ strapi }) => 
           where: {
             id: item.id,
           },
-          populate: ['createdBy', 'updatedBy'],
+        //   populate: ['createdBy', 'updatedBy'],
         });
 
-        data[index].attributes.createdBy = {
-          id: foundItem.createdBy.id,
-          firstname: foundItem.createdBy.firstname,
-          lastname: foundItem.createdBy.lastname,
-        };
-        data[index].attributes.updatedBy = {
-          id: foundItem.updatedBy.id,
-          firstname: foundItem.updatedBy.firstname,
-          lastname: foundItem.updatedBy.lastname,
-        };
+        // data[index].attributes.createdBy = {
+        //   id: foundItem.createdBy.id,
+        //   firstname: foundItem.createdBy.firstname,
+        //   lastname: foundItem.createdBy.lastname,
+        // };
+        // data[index].attributes.updatedBy = {
+        //   id: foundItem.updatedBy.id,
+        //   firstname: foundItem.updatedBy.firstname,
+        //   lastname: foundItem.updatedBy.lastname,
+        // };
       })
     );
     return { data, meta };
